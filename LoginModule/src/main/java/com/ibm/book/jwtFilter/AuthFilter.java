@@ -21,11 +21,9 @@ public class AuthFilter extends GenericFilterBean {
 		resp.setHeader("Access-Control-Max-Age", "3600");
 		resp.setHeader("Access-Control-Allow-Headers", "Origin, x-requested-with, authorization, Content-Type, Accept");
 		if(req.getMethod().equalsIgnoreCase(HttpMethod.OPTIONS.name())) {
-				System.out.println("Preflight");
 				chain.doFilter(req, resp);
 		}
 		else {
-			System.out.println("after preflight");
 			String authHeader = req.getHeader("Authorization");
 			if (authHeader == null || !authHeader.startsWith("Bearer")) {
 				throw new ServletException("Missing or Invalid Authorization "
@@ -33,14 +31,9 @@ public class AuthFilter extends GenericFilterBean {
 			}
 			try {
 				String token = authHeader.substring(13);
-				System.out.println("Auth Header"+authHeader);
-				System.out.println("Token Issssssss:"+token);
 				Claims claim = Jwts.parser()
 							.setSigningKey("usersecretkey")
 							.parseClaimsJws(token).getBody();
-				System.out.println(claim);
-				System.out.println(claim.getId());
-				System.out.println(claim.getSubject());
 				req.setAttribute("claims", claim);
 				chain.doFilter(req, resp);
 			} catch (Exception e) {

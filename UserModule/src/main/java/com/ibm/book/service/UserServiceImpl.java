@@ -10,7 +10,6 @@ import com.ibm.book.exception.UserAlreadyExistsException;
 import com.ibm.book.exception.UserNotFoundException;
 import com.ibm.book.model.User;
 import com.ibm.book.repository.UserRepository;
-import com.mongodb.operation.UserExistsOperation;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -59,8 +58,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User login(String email, String password) throws UserNotFoundException {
 		User matchedUser = userRepo.findByEmail(email);
-		System.out.println(matchedUser.getEmail());
-			System.out.println("Login matched user:"+matchedUser.getEmail() + matchedUser.getPassword());
 			boolean matched = BCrypt.checkpw(password, matchedUser.getPassword());
 			if (matched==false)
 				return null;

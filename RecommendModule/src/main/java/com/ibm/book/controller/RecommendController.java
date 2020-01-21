@@ -42,23 +42,22 @@ public class RecommendController {
 
 	@PostMapping("/save")
 	public ResponseEntity<Recommend> saveRecommendation(@RequestBody Recommend r)
-			throws NumberFormatException, UserNotFoundException {
+			throws UserNotFoundException {
 		logger.info("Inside the save recommendation block");
 		User u = us.getUserByEmail(r.getEmail());
 		r.setRecId(Integer.toString(u.getId()) + r.getBookId());
 		r.setUserId(u.getId());
 		r.setEmail(u.getEmail());
 		r.setName(u.getName());
-		List<Recommend> list = rs.getAll();
 		logger.info("Fetching recommendation by ID");
 		Recommend rec = rs.getRecommendationById(r.getRecId());
 		if (rec == null) {
 			logger.info("The recommendation has been saved.");
 			Recommend r2 = rs.saveRecommendation(r);
-			return new ResponseEntity<Recommend>(r2, HttpStatus.CREATED);
+			return new ResponseEntity<>(r2, HttpStatus.CREATED);
 		} else {
 			logger.error("The recommendation cannot be added");
-			return new ResponseEntity<Recommend>(HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
@@ -79,17 +78,17 @@ public class RecommendController {
 			if (rs.getRecommendationById(recId) != null) {
 				logger.info("The recommendation has been deleted");
 				rs.delete(recId);
-				return new ResponseEntity<Recommend>(HttpStatus.NO_CONTENT);
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}
 		logger.info("The recommendation was not found");
-		return new ResponseEntity<Recommend>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
 	@GetMapping("/count")
-	public ResponseEntity<?> getCountPlayer() {
+	public ResponseEntity<List<RecommendCount>> getCountPlayer() {
 		logger.info("Inside the getRecommendation count method");
 		List<RecommendCount> p = rs.getBookCount();
 		for (int i = 0; i < p.size(); i++) {
@@ -105,10 +104,10 @@ public class RecommendController {
 		}
 		if (!p.isEmpty()) {
 			logger.info("Fetching recommendation count");
-			return new ResponseEntity<List<RecommendCount>>(p, HttpStatus.OK);
+			return new ResponseEntity<>(p, HttpStatus.OK);
 		}
 		logger.info("No recommendation was found");
-		return new ResponseEntity<List<Recommend>>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	
 	@GetMapping("/rec/{emailId}")

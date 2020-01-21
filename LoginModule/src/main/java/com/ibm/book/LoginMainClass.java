@@ -14,8 +14,8 @@ import com.ibm.book.jwtFilter.AuthFilter;
 @PropertySource("classpath:dbconfig.properties")
 public class LoginMainClass {
 	@Bean
-	public FilterRegistrationBean jwtFilter() {
-		FilterRegistrationBean<Filter> bean = new FilterRegistrationBean<Filter>();
+	public FilterRegistrationBean<Filter> jwtFilter() {
+		FilterRegistrationBean<Filter> bean = new FilterRegistrationBean<>();
 		bean.setFilter(new AuthFilter());
 		 bean.addUrlPatterns("/recommend/*");
 		bean.addUrlPatterns("/favourites/*");

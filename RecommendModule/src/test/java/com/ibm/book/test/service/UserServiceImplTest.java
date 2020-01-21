@@ -50,21 +50,10 @@ public class UserServiceImplTest {
 
 	@Test
 	public void testRegisterUserSuccess() throws UserAlreadyExistsException {
-//		when(userRepository.findByEmail(newUser.getEmail())).thenReturn(null);
 		when(userRepository.save(Mockito.any(User.class))).thenReturn(newUser);
 		User user= userServiceImpl.createUser(newUser);
-//		when(userServiceImpl.createUser(newUser)).thenReturn(newUser);
-//		verify(userRepository).save(Mockito.any());
 	}
 
-//	@Test(expected = UserAlreadyExistsException.class)
-//	public void testRegisterUserFailure() throws UserAlreadyExistsException {
-////		doThrow(UserAlreadyExistsException.class).when(userRepository.findByEmail(newUser.getEmail()));
-//		when(userRepository.findByEmail(Mockito.anyString())).thenReturn(newUser);
-////		throw new UserAlreadyExistsException();
-////		User user= userServiceImpl.createUser(newUser);
-//		verify(userRepository).findByEmail(Mockito.any());
-//	}
 
 	@Test
 	public void testUpdateUserSuccess() throws Exception {
@@ -75,7 +64,6 @@ public class UserServiceImplTest {
 		when(userServiceImpl.updateUser(newUser.getEmail(), newUser)).thenReturn(newUser);
 		User updatedUser = userServiceImpl.updateUser(newUser.getEmail(), newUser);
 		assertEquals("9923456798", updatedUser.getPhone());
-//		verify(userRepository).save(Mockito.any());
 	}
 
 	@Test(expected = Exception.class)
@@ -88,22 +76,10 @@ public class UserServiceImplTest {
 
 	}
 
-
-
-//	@Test(expected = UserNotFoundException.class)
-//	public void testDeleteUserFailure() throws UserNotFoundException {
-//		when(userRepository.findByEmail("johnsmith15@gmail.com")).thenReturn(null).thenThrow(UserNotFoundException.class);
-//		when(userServiceImpl.deleteUser(newUser.getId())).thenReturn(newUser);
-////		verify(userRepository).findById(Mockito.any());
-//		verify(userRepository).deleteById(Mockito.any());
-//	}
-
 	@Test
 	public void testDeleteUserSuccess() {
 		when(userRepository.findById(newUser.getId())).thenReturn(optUser);
 		userRepository.deleteById(Mockito.anyInt());
-//		verify(userRepository).findById(Mockito.any());
-//		verify(userRepository).deleteById(Mockito.any());
 	}
 
 }

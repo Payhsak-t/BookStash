@@ -15,13 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.TextNode;
+
 import com.ibm.book.exception.UserAlreadyExistsException;
 import com.ibm.book.exception.UserNotFoundException;
 import com.ibm.book.model.User;
 import com.ibm.book.service.UserService;
-import com.mongodb.util.JSON;
 
 import java.util.*;
 import javax.mail.*;
@@ -90,9 +88,9 @@ public class UserController {
 			transport.sendMessage(message, message.getAllRecipients());
 			transport.close();
 		} catch (AddressException ae) {
-			ae.printStackTrace();
+			logger.error(ae.getMessage());
 		} catch (MessagingException me) {
-			me.printStackTrace();
+			logger.error(me.getMessage());
 		}
 	}
 

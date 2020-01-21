@@ -81,11 +81,11 @@ public class FavouritesController {
 			logger.info("Inside the delete favourite try block");
 			favService.deleteById(favId);
 			logger.info("The favourite has been deleted");
-			return new ResponseEntity<Favourites>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}
 		logger.error("The favourite was not found");
-		return new ResponseEntity<Favourites>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 }

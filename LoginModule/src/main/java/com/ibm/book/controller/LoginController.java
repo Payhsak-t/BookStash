@@ -46,13 +46,10 @@ public class LoginController {
 		}
 		else {
 			logger.info("The user has been logged in");
-			logger.info("Matched :" + matchedUser.getEmail() + " " + matchedUser.getPassword());
 			String token = Jwts.builder().setId(matchedUser.getEmail()).setIssuedAt(new Date()).signWith(SignatureAlgorithm.HS256, "usersecretkey").compact();
-			logger.info("Token:" + token);
-			Map<String, String> map1 = new HashMap<String, String>();
+			Map<String, String> map1 = new HashMap<>();
 			map1.put("token", token);
-			ResponseEntity<Map<String, String>> response = new ResponseEntity<Map<String, String>>(map1, HttpStatus.OK);
-			return response;
+			return new ResponseEntity<>(map1, HttpStatus.OK);
 		}
 	}
 }

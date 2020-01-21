@@ -43,8 +43,7 @@ public class RecommendServiceImpl implements RecommendService {
 
 	@Override
 	public List<Recommend> getAll() {
-		List<Recommend> list = rs.findAll();
-		return list;
+		return rs.findAll();
 	}
 
 	@Override
@@ -59,8 +58,7 @@ public class RecommendServiceImpl implements RecommendService {
 		// Convert the aggregation result into a List
 		AggregationResults<RecommendCount> groupResults = mongoTemplate.aggregate(agg, Recommend.class,
 				RecommendCount.class);
-		List<RecommendCount> result = groupResults.getMappedResults();
-		return result;
+		return groupResults.getMappedResults();
 	}
 
 	@Override
