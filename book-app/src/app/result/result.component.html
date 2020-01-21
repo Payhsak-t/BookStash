@@ -1,0 +1,11 @@
+<div class="card-deck container">
+    <app-book-card [bookone]="collection"
+    [faveArray] = "faveArray" *ngFor="let collection of googleBooksApiService.items |paginate: { id:'searchPagination', itemsPerPage: 15, currentPage: q };let bookId of faveArray">
+    </app-book-card>
+</div>
+
+
+
+<div class="paginate col-md-5 text-center">
+    <pagination-controls (pageChange)="q = $event" id = 'searchPagination' responsive="true" autoHide="true"></pagination-controls>
+</div>

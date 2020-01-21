@@ -1,0 +1,24 @@
+<br> <br>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+<div class="googleFont">
+<h2>Books you like</h2>
+
+<div *ngFor = "let fave of faves">
+    <div class="col-lg-8 col-md-6">
+    <div class="card">
+      <div class="container">
+        <img class="card-img-top" src="{{fave.smallThumbnail}}" alt="{{fave.title}}">
+      <div class="middle">
+        <button class="btn" (click)="removeFromFavourite(fave.bookId)">Delete</button>
+          <button class="btn" (click)="saveRecommend()">Recommend</button>
+      </div>
+      </div>
+      <div class="card-body"  routerLink="../bookDetails/{{fave.bookId}}">
+        <div class="mousey"><h6 class="card-title">{{fave.title}}</h6></div>
+        <p class="card-text mouseys">{{fave.authors}}</p>
+        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>

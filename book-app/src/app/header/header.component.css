@@ -1,0 +1,24 @@
+.btn-primary {
+   margin: 5px;
+}
+
+.jumbotron div.container div.container-fluid {
+   box-shadow: 1px solid ;
+}
+
+.btn-danger{
+   width: 100%;
+   color: black;
+   border-color: #ffffff;
+   background-color: #ffffff;
+
+}
+
+.cursive{
+   font-family: 'Satisfy', cursive;
+   font-size: 1.3em;
+}
+
+.googleFont {
+   font-family: 'Roboto Slab', sans-serif;
+}

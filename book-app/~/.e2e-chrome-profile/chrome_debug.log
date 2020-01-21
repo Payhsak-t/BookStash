@@ -1,0 +1,4 @@
+[30355:30355:0120/125030.916801:ERROR:sandbox_linux.cc(372)] InitializeSandbox() called with multiple threads in process gpu-process.
+[30355:30355:0120/125030.990215:ERROR:buffer_manager.cc(488)] [.DisplayCompositor]GL ERROR :GL_INVALID_OPERATION : glBufferData: <- error from previous GL command
+[30376:1:0120/125031.896168:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[30376:1:0120/125031.896595:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.

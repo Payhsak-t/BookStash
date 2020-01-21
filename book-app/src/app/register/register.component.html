@@ -1,0 +1,168 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+<div class="googleFont">
+    <div class="container">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <input type="file" accept="images/*" (change)="onFileSelected($event)" name="img" id="img"
+                    [formControl]="img">
+                <img [src]="imgURL" height="200" *ngIf="imgURL">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter name.." name="name"
+                        [formControl]="name">
+                    <small *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                        <small *ngIf="name.errors.required">
+                            Name is a mandatory field.
+                        </small>
+                        <small *ngIf="name.errors.pattern">
+                            Enter a valid name.
+                        </small>
+                    </small>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" class="form-control" id="dob" placeholder="12/12/1997" name="dob"
+                        [formControl]="dob">
+                </div>
+            </div>
+            <div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked
+                        [formControl]="gender">
+                    <label class="form-check-label" for="male">
+                        Male
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="female"
+                        [formControl]="gender">
+                    <label class="form-check-label" for="female">
+                        Female
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="others" value="others"
+                        [formControl]="gender">
+                    <label class="form-check-label" for="others">
+                        Others
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="genre" id="fiction" value="fiction" checked
+                        [formControl]="fiction">
+                    <label class="form-check-label" for="fiction">
+                        Fiction
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="genre" id="non-fiction" value="nonfiction"
+                        [formControl]="non_fiction">
+                    <label class="form-check-label" for="non-fiction">
+                        Non-fiction
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="genre" id="biography" value="biography"
+                        [formControl]="biography">
+                    <label class="form-check-label" for="biography">
+                        Memoir & Biography
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="genre" id="graphic-novels"
+                        value="graphicnovels" [formControl]="graphic">
+                    <label class="form-check-label" for="graphic-novels">
+                        Graphic Novels & Comics
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="genre" id="science" value="science"
+                        [formControl]="science">
+                    <label class="form-check-label" for="science">
+                        Science
+                    </label>
+                </div>
+            </div>
+            <br>
+            <div class="form-group col-md-4">
+                <label for="inputPhone">Phone</label>
+                <input type="text" name="phone" class="form-control" id="inputPhone" placeholder="7896630133.."
+                    [formControl]="phone">
+                <small *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+                    <small *ngIf="phone.errors.required">
+                        Phone number is a mandatory field.
+                    </small>
+                    <small *ngIf="phone.errors.minlength">
+                        Too short for a phone number.
+                    </small>
+                    <small *ngIf="phone.errors.maxlength">
+                        Too long for a phone number.
+                    </small>
+                </small>
+            </div>
+
+
+            <div class="form-group col-md-4">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="abc123@example.com"
+                    [formControl]="email" name="email">
+                <small *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                    <small *ngIf="email.errors.required">
+                        Email is a mandatory field.
+                    </small>
+                    <small *ngIf="email.errors.pattern">
+                        Enter a valid Email.
+                    </small>
+                </small>
+                <small class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</small>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="******"
+                        [formControl]="password" name="password">
+                    <small *ngIf="password.invalid && (password.dirty || password.touched)">
+                        <small *ngIf="password.errors.required" class="alert alert-danger">
+                            Password is a mandatory field.
+                        </small>
+                        <small *ngIf="password.errors.minlength">
+                            Password should be atleast 6 characters.
+                        </small>
+                    </small>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" placeholder="******"
+                        [formControl]="confirmPassword" name="confirmPassword" required pattern="{{password.value}}">
+                    <small *ngIf="confirmPassword.invalid && (confirmPassword.dirty || password.touched)">
+                        <small *ngIf="confirmPassword.errors.required" class="alert alert-danger">
+                            Confirm Password is a mandatory field.
+                        </small>
+                        <small *ngIf="confirmPassword.errors.minlength">
+                            Confirm Password should be atleast 6 characters.
+                        </small>
+                        <small class="alert alert-danger" *ngIf="confirmPassword.errors.pattern">
+                            Passwords do not match.
+                        </small>
+                    </small>
+                </div>
+            </div>
+            <div>
+                <small>By clicking Sign Up, you agree to our Terms, Data Policy and Cookie Policy. You may receive
+                    Email
+                    notifications from us and can opt out at any time.</small>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Sign Up</button>
+
+        </form>
+        <br>
+        <a [routerLink] = "['/login']">Have an account? Log In</a>
+    </div>
+</div>

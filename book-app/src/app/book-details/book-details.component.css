@@ -1,0 +1,38 @@
+/* .col-md-8 {
+    padding: 3vh 5vw 2vh;
+    background-color: gainsboro;
+} */
+
+.col-md-7 div div {
+    color: #737b83;
+}
+
+.col-md-4 img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.row {
+    margin: 2vh 5vw 2vh;
+}
+
+.col-md-4 div {
+    margin-top: 6vh;
+}
+
+.col-md-4 div button.btn {
+    margin: 3px;
+    height: 5vh;
+    width: 11vw;
+    text-align: center;
+}
+
+.googleFont {
+    font-family: 'Roboto Slab', sans-serif;
+}
+
+.col-md-7 {
+    padding: 2vh 2vw 2vh;
+    border-radius: 10px;
+    border: 1px solid #dddede87;
+    background-color: #dddede87;
+}

@@ -1,0 +1,15 @@
+img {
+    display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.googleFont {
+  padding: 4px;
+  font-family: 'Roboto Slab', sans-serif;
+}

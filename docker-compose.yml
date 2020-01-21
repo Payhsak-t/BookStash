@@ -1,0 +1,116 @@
+version: '3'
+services:
+#   container for mysql
+  databasemysql:
+    image: mysql:8.0.17
+    restart: always
+    ports:
+      - "3306:3306"
+    container_name: mysql-doc
+    network_mode: host
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root123
+      MYSQL_DATABASE: bookapp
+
+#    container for mongo
+  databasemongo:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    container_name: mongo-con
+    network_mode: host
+    environment:
+      MONGO_DATABASE: bookapp
+
+#   container for UserModule service
+  usermodule:
+      build:
+        dockerfile: Dockerfile
+        context:  ./UserModule
+      container_name: UserModule-docker
+      network_mode: host
+      restart: always
+      ports:
+       - "8085:8085"
+      depends_on:
+        - databasemysql
+        
+#   container for LoginModule service
+  loginmodule:
+      build:
+        dockerfile: Dockerfile
+        context:  ./LoginModule
+      container_name: LoginModule-docker
+      network_mode: host
+      restart: always
+      ports:
+       - "8082:8082"
+      depends_on:
+        - databasemysql
+        
+#   container for CommentModule service
+  commentmodule:
+      build: 
+        dockerfile: Dockerfile
+        context:  ./CommentModule
+      container_name: CommentModule-docker
+      network_mode: host
+      restart: always
+      ports:
+       - "8084:8084"
+      depends_on:
+        - databasemongo
+
+#   container for FavouriteModule service
+  favouritesmodule:
+      build: 
+        dockerfile: Dockerfile
+        context:  ./FavouritesModule
+      container_name: FavouritesModule-docker
+      network_mode: host
+      restart: always
+      ports:
+       - "8083:8083"
+      depends_on:
+        - databasemongo
+
+#   container for RecommendModule service
+  recommendmodule:
+      build: 
+        dockerfile: Dockerfile
+        context:  ./RecommendModule
+      container_name: RecommendModule-docker
+      network_mode: host
+      restart: always
+      ports:
+       - "8080:8080"
+      depends_on:
+        - databasemongo
+        
+#   container for RatingModule service
+  ratingmodule:
+      build: 
+        dockerfile: Dockerfile
+        context:  ./RatingModule
+      container_name: RatingModule-docker
+      network_mode: host
+      restart: always
+      ports:
+       - "8081:8081"
+      depends_on:
+        - databasemongo
+        
+# container for front end 
+  angular-frontend:
+    build:
+       dockerfile: Dockerfile
+       context:  ./book-app
+    container_name: angular-docker
+    network_mode: host
+    restart: always
+    ports:
+       - "8006:8006"
+    

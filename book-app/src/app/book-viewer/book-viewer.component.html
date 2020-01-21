@@ -1,0 +1,16 @@
+<!-- <div class="container">
+    <button (click)="onClick(bookone.id)" data-toggle="collapse" data-target="#viewerCanvas" mat-raised-button
+        color="primary">View Sample</button>
+    <br> <br>
+</div>
+<div class="collapse mx-auto" id="viewerCanvas" style="width:450px; height: 500px; text-align: center;"></div> -->
+<div class="container" data-toggle="collapse" data-target="#abc" style="text-align: center;">
+    <button (click)="onClick(bookone.id)" mat-raised-button color="primary">View Sample Of This Book</button>
+    <br> <br>
+</div>
+<div class="d-flex">
+<div class="collapse text-center mx-auto" id="abc">
+    <div id="viewerCanvas" style="width:450px; height: 600px;"></div>
+</div>
+</div>
+<br>

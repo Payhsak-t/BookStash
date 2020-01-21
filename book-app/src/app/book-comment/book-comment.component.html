@@ -1,0 +1,31 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+<div class="googleFont">
+<div ng-app class="container">
+    <h3><b>Comment your thoughts about this book!</b></h3>
+    <hr />
+    <div *ngIf="authService.isAuthenticated()" class="form-group">
+        <form [formGroup]="commentForm" ng-controller="Controller">
+            <textarea class="form-control" rows="5" ng-model="cmtName" placeholder="Your Comment"
+                formControlName="commentBox"></textarea>
+            <br />
+            <button mat-raised-button color="primary" (click)="saveComment()" [disabled]='!commentForm.valid'>Comment</button>
+            <br />
+            <hr />
+        </form>
+    </div>
+    <div *ngIf="!authService.isAuthenticated()">
+        <h5>To add a comment, please <a [routerLink] = "['/login']">log in</a> first.</h5>
+    </div>
+
+<hr>
+<br>
+<h5><b>Comments</b></h5>
+<ul class="list-group" *ngFor="let comment of commentArray">
+    <br>
+    <li class="list-group-item"> <b>{{comment.userEmail}}</b> <br> {{ comment.comment }}
+        <button mat-raised-button color="primary" *ngIf = "comment.userEmail === currentUser" class="mouse" style="float: right;" (click)="deleteComment(comment.commentId, comment.userEmail)">🗑️ Delete</button>
+    </li>
+</ul>
+</div>
+</div>

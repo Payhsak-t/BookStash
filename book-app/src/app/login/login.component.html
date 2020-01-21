@@ -1,0 +1,31 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+<div class="googleFont">
+<div class="login">
+    <div class="container">
+        <div class="form-container text-align-center" >
+            <form [formGroup]="loginform" (ngSubmit)="loginSubmit()">
+                <label>
+                    User Email :
+                </label>
+                <input type="text" [formControl]='email' class="input">
+                <br /><br />
+                <label>
+                    Password :
+                </label>
+                <input type="password" [formControl]='password' class="input">
+                <br /><br />
+
+
+                <div class="g-recaptcha" data-sitekey="6LdGeDcUAAAAALfoMZ2Ltv4EE6AHIYb8nSxhCRh_">
+                </div>
+                <button type="submit" (click)=loginSubmit() class="submit" [disabled]='!loginform.valid'>Log In</button>
+
+            </form>
+            <br>
+            <a [routerLink] = "['/register']">Do not have an account? Register Here</a>
+            <strong *ngIf="submitMessage" class="error-message">{{submitMessage}}</strong>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,55 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+<div class="googleFont">
+
+    <!-- <head>
+        <title>
+            Book Stash
+        </title>
+    </head> -->
+        <section id="search" class="results, sectionBackground"></section>
+        <section class="search-sec">
+            <div class="container">
+                <form [formGroup]="searchForm" (ngSubmit)="OnSearch()">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                        <!-- <input type="text" class="form-control search-slt" placeholder="Search Book" formControlName="bookName"> -->
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text"><i class="fa fa-search"
+                                                        aria-hidden="true"></i></div>
+                                            </div>
+                                            <input id="searchBox" type="text" class="form-control search-slt"
+                                                placeholder="What are you looking for?" aria-label="Search"
+                                                aria-describedby="basic-addon1" formControlName="bookName">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-12 p-0">
+                                        <select id="byOption" class="form-control search-slt"
+                                            formControlName="searchBy">
+                                            <option *ngFor="let s of searchlist" [ngValue]="s.value">{{ s.name }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-1 col-md-1 col-sm-12 p-0">
+                                        <!-- <button type="submit" aria-disabled="true" aria-describedby="searchBox byOption "
+                                        class="btn btn-danger wrn-btn">Search</button> -->
+                                        <button type="submit" class="btn btn-danger wrn-btn"
+                                            [disabled]='!searchForm.valid'>Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+
+        <h3 *ngIf="item">Search results</h3>
+        <app-result></app-result>
+        <h3>Most Recommended Books</h3>
+        <app-recommendation></app-recommendation>
+</div>

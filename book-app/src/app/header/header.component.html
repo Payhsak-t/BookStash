@@ -1,0 +1,53 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+<div class="googleFont">
+  <div class="sticky">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a href=""> <img src="../../assets/BookStashLogo.png" width="100" height="50" alt=""> </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+            &nbsp;&nbsp;
+            <button class="btn btn-outline-primary" routerLink="login">Login</button>
+          </li>
+          <li class="nav-item">
+            <div class="col">
+              <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Genres</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <option ngbDropdownItem *ngFor="let genre of genrelist" (click)="genreSearch(genre.value)">
+                    {{genre.name}}</option>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <!-- <form *ngIf="authService.isAuthenticated()" class="form-inline my-2 my-lg-0" [formGroup]="searchForm"
+          (ngSubmit)="OnSearch()">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+            formControlName="bookName">
+          <select id="byOption" class="form-control search-slt" formControlName="searchBy">
+            <option *ngFor="let s of searchlist" [ngValue]="s.value">{{ s.name }}</option>
+          </select>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+        <div *ngIf="authService.isAuthenticated()" class="nav-item dropdown my-2 my-lg-0 mr-5">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img [src]=profileImage class="rounded-circle z-depth-0" height="30" width="35" alt="avatar image"
+              *ngIf=profileImage>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink] = "['/edit']">Profile</a>
+            <a class="dropdown-item" [routerLink] = "['/favourite']">Favourites</a>
+            <div class="dropdown-divider"></div>
+            <button class="btn btn-danger" (click)="logout()">Logout</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>

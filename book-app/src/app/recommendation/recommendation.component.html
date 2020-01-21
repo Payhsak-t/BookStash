@@ -1,0 +1,23 @@
+<div class="container"
+    *ngFor="let r of recommendService.recCount | paginate: { id:'recommendPagination', itemsPerPage: 6, currentPage: p}">
+    <div class="card">
+        <div>
+            <img class="card-img-top" src="{{r.smallThumbnail}}" alt="{{r.title}}">
+            <div class="middle">
+                <p>Recommended By: {{r.count}} Users</p>
+            </div>
+        </div>
+        <div class="card-body"  routerLink="../bookDetails/{{r.bookId}}">
+            <div class="mousey">
+                <h6 class="card-title">{{r.title}}</h6>
+            </div>
+            <p class="card-text mouseys">{{r.authors}}</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="paginate col-md-5 text-center">
+    <pagination-controls (pageChange)="p = $event" id='recommendPagination' responsive="true" autoHide="true">
+    </pagination-controls>
+</div>

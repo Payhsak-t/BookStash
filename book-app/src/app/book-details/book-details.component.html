@@ -1,0 +1,25 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+<div class="googleFont">
+<div class="row">
+    <div class="col-md-4 text-center">
+        <img src="{{bookone.smallThumbnail}}" alt="...">
+        <div>
+            <button mat-raised-button color="primary" ng-disabled="hideRec" (click)="saveRecommend()">Recommend</button>
+            &nbsp;&nbsp;
+            <button mat-raised-button color="primary" (click) = "addToFavourite(bookone.id)">Favourite</button>
+            &nbsp;&nbsp;
+            <button mat-raised-button color="primary" (click) = "openDialog(bookone.id)">Rate</button>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="title">
+            <h3>{{bookone.title}}</h3>
+            <p>by {{bookone.authors}}</p>
+        </div>
+        <p [innerHTML]="bookone.description"></p>
+    </div>
+</div>
+</div>
+<app-book-viewer [bookone]="bookone"></app-book-viewer>
+<app-book-comment [bookone]="bookone"></app-book-comment>
