@@ -7,4 +7,4 @@ maven-build:
  script: 'mvn package'
 maven-test:
  stage: test
- script: 'mvn test
+ script: 'mvn test'
