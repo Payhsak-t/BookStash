@@ -1,4 +1,3 @@
-
 ## Book App (BookStash) - A Case Study
 
 ## Problem Statement
@@ -120,3 +119,35 @@ and run through docker-compose
 3. All the Services are up and running using docker (Dockercompose should be used for running them)
 4. E2E tests should be executed and shown.
 
+### Home Page
+![Screenshot_from_2020-01-21_12-03-24](/uploads/7ed963d9853a9b14d930815aa54f15ab/Screenshot_from_2020-01-21_12-03-24.png)
+
+### Search For A Book
+![SearchResults](/uploads/6d9d20c9f2c84fb01ee4abcbb80fc0db/SearchResults.png)
+
+### Global Recommendations
+![Recommend](/uploads/3dbb1e3afeca65c33cbbe7395d89c634/Recommend.png)
+
+### Book Details
+![BookSetails](/uploads/cda793e521ad3efa3e5a5dce9f4ce8b7/BookSetails.png)
+
+### View Book Sample
+![viewSample](/uploads/0c083003c6c135dd31a50019f8e226a3/viewSample.png)
+
+### Book Comments
+![Comments](/uploads/0c20e4f07edfe06a563a897ad26c5e25/Comments.png)
+
+### Favourites of particular user
+![Favourites](/uploads/e8fad4ef85053a0d9f1eba24e25d8491/Favourites.png)
+
+### Register
+![Register](/uploads/3bd639ed6e9d7eb72a3439d4ded251a3/Register.png)
+
+### Login
+![Login](/uploads/73a394632193a78cbbc2c1dc044ec3f4/Login.png)
+
+### Update Profile
+![UpdateProfile](/uploads/b377a6c3c8a98483da417c5536c93de3/UpdateProfile.png)
+
+### Update Password
+![UpdatePassword](/uploads/f6504c76f285c0a5e652ee20f06a1089/UpdatePassword.png)
