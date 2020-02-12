@@ -123,34 +123,34 @@ and run through docker-compose
 4. E2E tests should be executed and shown.
 
 ### Home Page
-![Screenshot_from_2020-01-21_12-03-24](/uploads/7ed963d9853a9b14d930815aa54f15ab/Screenshot_from_2020-01-21_12-03-24.png)
+![Screenshot_from_2020-01-21_12-03-24](https://user-images.githubusercontent.com/30175216/74328740-745e2380-4db4-11ea-987c-bce239e2f6df.png)
 
 ### Search For A Book
-![SearchResults](/uploads/6d9d20c9f2c84fb01ee4abcbb80fc0db/SearchResults.png)
+![SearchResults](https://user-images.githubusercontent.com/30175216/74329368-ac199b00-4db5-11ea-87be-7290d18617f3.png)
 
 ### Global Recommendations
-![Recommend](/uploads/3dbb1e3afeca65c33cbbe7395d89c634/Recommend.png)
+![Recommend](https://user-images.githubusercontent.com/30175216/74329486-e71bce80-4db5-11ea-81c6-89fd3e8d06c5.png)
 
 ### Book Details
-![BookSetails](/uploads/cda793e521ad3efa3e5a5dce9f4ce8b7/BookSetails.png)
+![BookSetails](https://user-images.githubusercontent.com/30175216/74329539-fef35280-4db5-11ea-8bb3-d646e018e679.png)
 
 ### View Book Sample
-![viewSample](/uploads/0c083003c6c135dd31a50019f8e226a3/viewSample.png)
+![viewSample](https://user-images.githubusercontent.com/30175216/74329576-13cfe600-4db6-11ea-8523-804897ed537e.png)
 
 ### Book Comments
-![Comments](/uploads/0c20e4f07edfe06a563a897ad26c5e25/Comments.png)
+![Comments](https://user-images.githubusercontent.com/30175216/74336185-d2463780-4dc3-11ea-8259-00d5bc327790.png)
 
 ### Favourites of particular user
-![Favourites](/uploads/e8fad4ef85053a0d9f1eba24e25d8491/Favourites.png)
+![Favourites](https://user-images.githubusercontent.com/30175216/74336191-d5412800-4dc3-11ea-9cc8-cff65fbc53c8.png)
 
 ### Register
-![Register](/uploads/3bd639ed6e9d7eb72a3439d4ded251a3/Register.png)
+![Register](https://user-images.githubusercontent.com/30175216/74336199-d83c1880-4dc3-11ea-9121-de43d88bf2c0.png)
 
 ### Login
-![Login](/uploads/73a394632193a78cbbc2c1dc044ec3f4/Login.png)
+![Login](https://user-images.githubusercontent.com/30175216/74336211-da9e7280-4dc3-11ea-91b2-e02550dea8dc.png)
 
 ### Update Profile
-![UpdateProfile](/uploads/b377a6c3c8a98483da417c5536c93de3/UpdateProfile.png)
+![UpdateProfile](https://user-images.githubusercontent.com/30175216/74336335-10435b80-4dc4-11ea-93ba-e5ecc3fdaf6d.png)
 
 ### Update Password
-![UpdatePassword](/uploads/f6504c76f285c0a5e652ee20f06a1089/UpdatePassword.png)
+![UpdatePassword](https://user-images.githubusercontent.com/30175216/74336339-12a5b580-4dc4-11ea-8ba5-85f294e0d75e.png)
